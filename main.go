@@ -2,16 +2,55 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	"time"
-	// "learning_golang/array/array" //如何导入包
 )
 
 func main() {
 
-	test_slice()
+	test_strings()
+	// test_slice_string()
+	// test_slice()
 	// test_time() //练习使用time包
 	// test_iota()
 	fmt.Println("Hello World!")
+
+}
+
+func test_strings() {
+	s := "hello world hello world"
+	str := "wl"
+
+	//返回字符串str中的任何一个字符在字符串s中第一次出现的位置。
+	//如果找不到或str为空则返回-1
+	index := strings.IndexAny(s, str)
+	fmt.Println(index)
+
+	a := "qwert"
+	fmt.Println(strings.Split(a, ""))
+}
+
+func test_slice_string() {
+	str := "hello world"
+	s1 := str[0:5]
+	fmt.Println(s1)
+
+	s2 := str[6:] //6为索引位子
+	fmt.Println(s2)
+
+	str_1 := "hello world"
+	s := []rune(str_1) //字符串转换为byte类型,如果是中文使用[]rune(str_1)
+	fmt.Println(str_1, s)
+	s[6] = 'G'
+	s_1 := s[:8]
+	fmt.Println(string(s), string(s_1))
+
+	// a[x:y:z] 切片内容 [x:y] 切片长度: y-x 切片容量:z-x [重点关注]
+
+	// 数组or切片转字符串：
+	array_or_slice := [...]int{1, 2, 3}
+	str_9 := strings.Replace(strings.Trim(fmt.Sprint(array_or_slice), "[]"), " ", ",", -1)
+	fmt.Println(fmt.Sprint(array_or_slice), str_9)
 
 }
 
@@ -42,7 +81,7 @@ func test_slice() {
 	fmt.Println(s5)
 	arr := [5]int{11, 22, 33, 44, 55}
 	var s6 []int
-	s6 = arr[1:4] //前包后不包
+	s6 = arr[1:4] //前包后不包（前开后闭）
 	fmt.Println(s6)
 
 	// var slice00 []int = make([]int, 10)
@@ -97,6 +136,28 @@ func test_slice() {
 	slice_5_2 := []int{0, 1, 2, 3, 4}
 	fmt.Println(slice_5_2)
 	// slice中cap重新分配规律：2倍分配
+
+	s_1 := []int{1, 2, 3, 4, 5}
+	s_2 := make([]int, 10)
+	s_2[0] = 1000
+	fmt.Println(s_1, s_2)
+	copy(s_2, s_1) //copy是两个slice直接数据拷贝，索引区域覆盖对应的值
+	fmt.Println(s_1, s_2)
+
+	s_3 := []int{1, 2, 3}
+	s_3 = append(s_3, s_2...) //append 合并两个切片，返回新的 (合并后) 切片对象。
+	fmt.Println(s_3)
+	s_3 = append(s_3, 4, 5, 6) //append讲多个元素合并到切片中
+	fmt.Println(s_3)
+
+	s_5 := []int{5, 6, 7, 8, 9}
+	fmt.Println(s_5)
+	s_6 := s_5[1:2]
+	fmt.Println(s_6)
+	s_7 := s_6[1:4] //前包后不包（前开后闭）
+	fmt.Println(s_7)
+
+	//字符串切片，string底层就是一个byte的数组，因此，也可以进行切片操作。
 
 }
 
