@@ -1,6 +1,8 @@
-package main
+package Array
 
-func TestArr(){
+import "fmt"
 
-fmt.Println("TestArr");
+func TestArr() {
+
+	fmt.Println("TestArr")
 }
