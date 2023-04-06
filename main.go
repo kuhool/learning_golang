@@ -3,14 +3,15 @@ package main
 import (
 	"fmt"
 	// "learning_golang/arr"
-	"learning_golang/pter"
+	// "learning_golang/pter"
 	"strings"
 	"time"
 )
 
 func main() {
 
-	pter.Test()
+	// pter.Test()
+	// arr.Test()
 	// test_strings()
 	// test_slice_string()
 	// test_slice()
