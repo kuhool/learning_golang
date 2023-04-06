@@ -2,13 +2,16 @@ package main
 
 import (
 	"fmt"
+	// "learning_golang/arr"
+	"learning_golang/pter"
 	"strings"
 	"time"
 )
 
 func main() {
 
-	test_strings()
+	pter.Test()
+	// test_strings()
 	// test_slice_string()
 	// test_slice()
 	// test_time() //练习使用time包
