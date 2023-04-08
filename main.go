@@ -2,15 +2,19 @@ package main
 
 import (
 	"fmt"
+	"learning_golang/stru"
+
 	// "learning_golang/arr"
-	// "learning_golang/pter"
+
 	"strings"
 	"time"
 )
 
 func main() {
 
-	// pter.Test()
+	stru.Test()
+	// sli.Test()
+	// pointer.Test()
 	// arr.Test()
 	// test_strings()
 	// test_slice_string()
