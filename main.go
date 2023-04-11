@@ -2,17 +2,28 @@ package main
 
 import (
 	"fmt"
-	"learning_golang/stru"
-
-	// "learning_golang/arr"
-
+	"learning_golang/grt"
+	"learning_golang/selectT"
+	"learning_golang/timer"
+	"os"
 	"strings"
+
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/go-xorm/xorm"
+	"xorm.io/core"
 )
+
+var engine *xorm.Engine
 
 func main() {
 
-	stru.Test()
+	test_select()
+	// test_timer()
+	// test_grt()
+	// test_xrom()
+	// stru.Test()
 	// sli.Test()
 	// pointer.Test()
 	// arr.Test()
@@ -22,6 +33,48 @@ func main() {
 	// test_time() //练习使用time包
 	// test_iota()
 	fmt.Println("Hello World!")
+
+}
+func test_select() {
+	selectT.Test()
+}
+
+func test_timer() {
+	timer.Test()
+}
+
+func odd(block chan struct{}) {
+	for i := 1; i <= 100; i++ {
+		<-block
+		if i%2 == 1 {
+			fmt.Println("奇数：", i)
+		}
+	}
+}
+
+func even(block chan struct{}) {
+	for i := 1; i <= 100; i++ {
+		block <- struct{}{}
+		if i%2 == 0 {
+			fmt.Println("偶数：", i)
+		}
+	}
+}
+func test_grt() {
+	grt.Test()
+}
+func test_xrom() {
+	engine, err := xorm.NewEngine("mysql", "lvweb1:lavion#2013@tcp(polar-dev.rwlb.rds.aliyuncs.com:3306)/db_saas?charset=utf8")
+	fmt.Println(engine, err)
+	f, err := os.Create("sql.log")
+	if err != nil {
+		println(err.Error())
+		return
+	}
+	engine.SetLogger(xorm.NewSimpleLogger(f))
+	engine.ShowSQL(true)
+	engine.Logger().SetLevel(core.LOG_DEBUG)
+	fmt.Println(engine.Ping())
 
 }
 

@@ -7,7 +7,7 @@ import (
 func Test() {
 	var p *string
 	fmt.Println(p)
-	fmt.Printf("p的值是%s\n", p)
+	// fmt.Printf("p的值是%s\n", p)
 	if p != nil {
 		fmt.Println("非空")
 	} else {
