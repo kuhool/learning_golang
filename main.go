@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"learning_golang/atomic"
 	"learning_golang/grt"
 	"learning_golang/selectT"
 	"learning_golang/timer"
@@ -19,7 +20,8 @@ var engine *xorm.Engine
 
 func main() {
 
-	test_select()
+	test_atomic()
+	// test_select()
 	// test_timer()
 	// test_grt()
 	// test_xrom()
@@ -35,6 +37,10 @@ func main() {
 	fmt.Println("Hello World!")
 
 }
+func test_atomic() {
+	atomic.Test()
+}
+
 func test_select() {
 	selectT.Test()
 }
