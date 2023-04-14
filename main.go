@@ -22,7 +22,9 @@ import (
 var engine *xorm.Engine
 
 func main() {
-	basicLevel.Test()
+	basicLevel.VariableTypeTest()
+	//basicLevel.ConstTest()
+	//basicLevel.VariableTest()
 	//test_log()
 	// test_trace()
 	// test_atomic()

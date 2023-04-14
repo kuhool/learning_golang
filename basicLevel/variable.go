@@ -7,7 +7,7 @@ func init() {
 	fmt.Printf("-------variable 变量-------\n")
 }
 
-func Test() {
+func VariableTest() {
 	//申明单个变量
 	var hello string
 	hello = "打印：hello world"

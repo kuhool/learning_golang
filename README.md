@@ -1,6 +1,6 @@
 # learning_golang
 
-## golang基础篇 //basic-level  basicLevel
+## golang基础篇 /basic-level  basicLevel
 
 ### golang 数组
 * 基础数据类型 
@@ -11,8 +11,8 @@
 * time
 
 
-## golang进阶/advanced-level
+## golang进阶 /advanced-level
 
-## golang高级/senior-level
+## golang高级 /senior-level
 
-## golang面试//crossing-levels
+## golang面试 /crossing-levels
