@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"learning_golang/atomic"
 	"learning_golang/basicLevel"
-	"learning_golang/grt"
-	"learning_golang/log"
-	"learning_golang/selectT"
-	"learning_golang/timer"
+	"learning_golang/todo/atomic"
+	"learning_golang/todo/grt"
+	"learning_golang/todo/log"
+	"learning_golang/todo/selectT"
+	"learning_golang/todo/timer"
 	"os"
 	"runtime/trace"
 	"strings"
