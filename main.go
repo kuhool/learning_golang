@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"learning_golang/atomic"
+	"learning_golang/basicLevel"
 	"learning_golang/grt"
 	"learning_golang/log"
 	"learning_golang/selectT"
@@ -21,7 +22,8 @@ import (
 var engine *xorm.Engine
 
 func main() {
-	test_log()
+	basicLevel.Test()
+	//test_log()
 	// test_trace()
 	// test_atomic()
 	// test_select()
@@ -37,7 +39,7 @@ func main() {
 	// test_slice()
 	// test_time() //练习使用time包
 	// test_iota()
-	fmt.Println("Hello World!")
+	fmt.Println("-------finished!!!------- ")
 
 }
 
