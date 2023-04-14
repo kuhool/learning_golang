@@ -4,9 +4,11 @@ import (
 	"fmt"
 	"learning_golang/atomic"
 	"learning_golang/grt"
+	"learning_golang/log"
 	"learning_golang/selectT"
 	"learning_golang/timer"
 	"os"
+	"runtime/trace"
 	"strings"
 
 	"time"
@@ -19,8 +21,9 @@ import (
 var engine *xorm.Engine
 
 func main() {
-
-	test_atomic()
+	test_log()
+	// test_trace()
+	// test_atomic()
 	// test_select()
 	// test_timer()
 	// test_grt()
@@ -36,6 +39,26 @@ func main() {
 	// test_iota()
 	fmt.Println("Hello World!")
 
+}
+
+func test_log() {
+	log.Test()
+}
+func test_trace() {
+	//创建trace文件
+	f, err := os.Create("trace.out")
+	if err != nil {
+		panic(err)
+	}
+
+	defer f.Close()
+
+	//启动trace goroutine
+	err = trace.Start(f)
+	if err != nil {
+		panic(err)
+	}
+	defer trace.Stop()
 }
 func test_atomic() {
 	atomic.Test()
