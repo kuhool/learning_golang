@@ -22,7 +22,19 @@ import (
 var engine *xorm.Engine
 
 func main() {
-	basicLevel.VariableTypeTest()
+
+	fmt.Println("welcome Cursor")
+	//var whatever [5]struct{}
+	//for i := range whatever {
+	//	defer func() { fmt.Println(i) }()
+	//}
+
+	//
+
+	basicLevel.PanicTest()
+	//basicLevel.AnonFuncTest()
+	//basicLevel.FuncTest()
+	//basicLevel.VariableTypeTest()
 	//basicLevel.ConstTest()
 	//basicLevel.VariableTest()
 	//test_log()

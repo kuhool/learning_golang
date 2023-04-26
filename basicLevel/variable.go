@@ -3,9 +3,9 @@ package basicLevel
 import "fmt"
 
 // variable 变量
-func init() {
-	fmt.Printf("-------variable 变量-------\n")
-}
+//func init() {
+//	fmt.Printf("-------variable 变量-------\n")
+//}
 
 func VariableTest() {
 	//申明单个变量

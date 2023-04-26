@@ -5,9 +5,9 @@ import (
 	"math"
 )
 
-func init() {
-	fmt.Println("const 常量")
-}
+//func init() {
+//	fmt.Println("const 常量")
+//}
 
 func VariableTypeTest() {
 	//整型
