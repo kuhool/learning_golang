@@ -30,8 +30,8 @@ func main() {
 	//}
 
 	//
-
-	basicLevel.PanicTest()
+	basicLevel.GoroutineT()
+	// basicLevel.PanicTest()
 	//basicLevel.AnonFuncTest()
 	//basicLevel.FuncTest()
 	//basicLevel.VariableTypeTest()
