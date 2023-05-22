@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"learning_golang/basicLevel"
+
+	"learning_golang/designPattern"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
@@ -29,8 +30,8 @@ func main() {
 	//	defer func() { fmt.Println(i) }()
 	//}
 
-	//
-	basicLevel.GoroutineT()
+	designPattern.SingletonT()
+	// basicLevel.GoroutineT()
 	// basicLevel.PanicTest()
 	//basicLevel.AnonFuncTest()
 	//basicLevel.FuncTest()
