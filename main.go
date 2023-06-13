@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/go-xorm/xorm"
 	"learning_golang/designPattern"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
@@ -12,25 +13,38 @@ import (
 	"os"
 	"runtime/trace"
 	"strings"
-
 	"time"
-
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/go-xorm/xorm"
 	"xorm.io/core"
 )
 
 var engine *xorm.Engine
 
+func implode(a []string, sep string) string {
+	if len(a) == 0 {
+		return ""
+	}
+	if len(a) == 1 {
+		return a[0]
+	}
+	n := len(sep) * (len(a) - 1)
+	for i := 0; i < len(a); i++ {
+		n += len(a[i])
+	}
+	b := make([]byte, n)
+	slen := copy(b, a[0])
+	for _, s := range a[1:] {
+		slen += copy(b[slen:], sep)
+		slen += copy(b[slen:], s)
+	}
+	return string(b)
+}
 func main() {
+	//--------------------------------设计模式-----------------------
+	designPattern.FactorMethodT()
+	//designPattern.SingletonT()
+	//designPattern.SimpleFactoryT()
 
-	fmt.Println("welcome Cursor")
-	//var whatever [5]struct{}
-	//for i := range whatever {
-	//	defer func() { fmt.Println(i) }()
-	//}
-
-	designPattern.SingletonT()
+	//--------------------------------设计模式-----------------------
 	// basicLevel.GoroutineT()
 	// basicLevel.PanicTest()
 	//basicLevel.AnonFuncTest()

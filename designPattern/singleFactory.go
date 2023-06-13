@@ -2,8 +2,12 @@ package designPattern
 
 import "fmt"
 
+/*
+*
+简单工厂模式
+*/
 func init() {
-	fmt.Println("simplefactory ")
+	fmt.Println("simplefactory")
 }
 
 // 定义一个接口是API
@@ -27,7 +31,7 @@ func (*HelloAPI) Say(name string) string {
 }
 
 // 工厂模式New一个对象
-// https://www.topgoer.cn/docs/golang-design-pattern/SimpleFactory
+// 通过不同值映射实例化不同的类
 func NewAPI(t int) API {
 	if t == 1 {
 		return &HiAPI{}
@@ -38,7 +42,7 @@ func NewAPI(t int) API {
 	}
 }
 
-func DesignPatternT() {
+func SimpleFactoryT() {
 
 	//工厂生产的对象调用
 	api := NewAPI(1)
