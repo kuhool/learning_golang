@@ -4,7 +4,6 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
-	"learning_golang/designPattern"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
@@ -38,9 +37,37 @@ func implode(a []string, sep string) string {
 	}
 	return string(b)
 }
+func demo(paramDemo []int32) ([]int32, error) {
+	fmt.Printf("main.demo.paramDemo pointer: %p \n", &paramDemo)
+	paramDemo[0] = 2
+
+	return paramDemo, nil
+}
 func main() {
+
+	type Agg struct {
+		ID   int
+		Name string
+	}
+
+	type Agg1 struct {
+		ID   int
+		Name string
+	}
+	var a1 = Agg{1, "foo"}
+	a2 := (Agg1)(a1)
+	fmt.Println(a1, a2)
+	//designPattern.T()
+
+	//paramDemo := []int32{1, 2, 3}
+	//fmt.Printf("a:%d ,ptr:%p &ptr:%p\n", paramDemo, paramDemo, &paramDemo)
+	//fmt.Printf("main.paramDemo 1 %v, pointer: %p \n", paramDemo, &paramDemo)
+	//// 浅拷贝
+	//demo(paramDemo)
+	//fmt.Printf("main.paramDemo 2 %v, pointer: %p \n", paramDemo, &paramDemo)
+
 	//--------------------------------设计模式-----------------------
-	designPattern.FactorMethodT()
+	//designPattern.FactorMethodT()
 	//designPattern.SingletonT()
 	//designPattern.SimpleFactoryT()
 
