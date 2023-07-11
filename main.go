@@ -4,12 +4,15 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
+	"learning_golang/basicLevel"
+	"learning_golang/crossingLevels"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
 	"learning_golang/todo/selectT"
 	"learning_golang/todo/timer"
 	"os"
+	reflect "reflect"
 	"runtime/trace"
 	"strings"
 	"time"
@@ -43,22 +46,70 @@ func demo(paramDemo []int32) ([]int32, error) {
 
 	return paramDemo, nil
 }
+
+func contains(source []interface{}, obj interface{}) bool {
+	for _, e := range source {
+		if e == obj {
+			return true
+		}
+	}
+	return false
+}
+func StructToMapByTag(_input interface{}, _tag string) (rMap map[string]interface{}) {
+	rMap = make(map[string]interface{})
+	//反射结构体
+	mapTyp := reflect.TypeOf(_input).Elem()
+	mapVal := reflect.ValueOf(_input).Elem()
+	fmt.Println(mapTyp, mapVal)
+	num := mapVal.NumField() //获取字段数量
+	for i := 0; i < num; i++ {
+		//如果是个指针类型，则不能为nil
+		if mapVal.Field(i).Kind() == reflect.Ptr && mapVal.Field(i).IsNil() {
+			continue
+		}
+		//获取标签,需要通过reflect.type来获取标签
+		fieldName := mapTyp.Field(i).Tag.Get(_tag)
+		if fieldName == "" {
+			fieldName = mapTyp.Field(i).Name
+		}
+		rMap[fieldName] = mapVal.Field(i)
+	}
+	return
+}
+
+type User struct {
+	Id   int
+	Name string
+	Age  int
+}
+
+func (y *User) aa() bool {
+
+	return true
+}
+
 func main() {
 
-	type Agg struct {
-		ID   int
-		Name string
-	}
-
-	type Agg1 struct {
-		ID   int
-		Name string
-	}
-	var a1 = Agg{1, "foo"}
-	a2 := (Agg1)(a1)
-	fmt.Println(a1, a2)
+	basicLevel.ReflectGetTag()
+	//u := User{1, "zs", 20}
+	//basicLevel.ReflectShowStructField(u)
+	//var x float64 = 3.4
+	//basicLevel.ReflectSetValue(&x)
+	//basicLevel.ReflectValue2(x)
+	//basicLevel.ReflectKind2()
+	//var x float64 = 3.4
+	//basicLevel.ReflectType2(x)
+	//var s []interface{}
+	//s = append(s, "a")
+	//s = append(s, "b")
+	//s = append(s, 1)
+	//fmt.Println(contains(s, 1))
+	os.Exit(0)
+	//str := "杨先森test"
+	//fmt.Println("RuneCountInString:", utf8.RuneCountInString(str))
+	//basicLevel.TestReflect()
+	crossingLevels.TestCopier()
 	//designPattern.T()
-
 	//paramDemo := []int32{1, 2, 3}
 	//fmt.Printf("a:%d ,ptr:%p &ptr:%p\n", paramDemo, paramDemo, &paramDemo)
 	//fmt.Printf("main.paramDemo 1 %v, pointer: %p \n", paramDemo, &paramDemo)
