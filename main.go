@@ -4,8 +4,7 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
-	"learning_golang/basicLevel"
-	"learning_golang/crossingLevels"
+	"learning_golang/goFramework"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
@@ -13,6 +12,7 @@ import (
 	"learning_golang/todo/timer"
 	"os"
 	reflect "reflect"
+	"regexp"
 	"runtime/trace"
 	"strings"
 	"time"
@@ -88,9 +88,92 @@ func (y *User) aa() bool {
 	return true
 }
 
-func main() {
+func separateContent(richText string) map[string]interface{} {
+	imgPattern := `<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>`
+	r := regexp.MustCompile(imgPattern)
+	imgMatches := r.FindAllStringSubmatch(richText, -1)
+	fmt.Println(imgMatches)
+	img := make([]string, 0)
+	for _, match := range imgMatches {
+		img = append(img, match[2])
+	}
+	text := r.ReplaceAllString(richText, "")
+	text = stripTags(text)
+	return map[string]interface{}{
+		"rich_text_img": img,
+		"rich_text":     text,
+	}
+}
+func stripTags(text string) string {
+	re := regexp.MustCompile("<[^>]+>")
+	return re.ReplaceAllString(text, "")
+}
 
-	basicLevel.ReflectGetTag()
+//	func separateContent(richText string) map[string]interface{} {
+//		pattern := `<\s*img\s+[^>]*?src\s*=\s*('|")(.*?)\1[^>]*?\/?\s*>`
+//		re := regexp.MustCompile(pattern)
+//		imgMatches := re.FindAllStringSubmatch(richText, -1)
+//		var img []string
+//		for _, match := range imgMatches {
+//			img = append(img, match[2])
+//		}
+//		text := re.ReplaceAllString(richText, "")
+//		text = stripTags(text)
+//		return map[string]interface{}{
+//			"rich_text_img": img,
+//			"rich_text":     text,
+//		}
+//	}
+//
+//	func stripTags(s string) string {
+//		return strings.TrimSpace(regexp.MustCompile(`(?s)<[^>]*?>`).ReplaceAllString(s, ""))
+//	}
+func extractImageUrls(richText string) []string {
+	imgPattern := `<img[^>]+src="([^"]+)"[^>]*>`
+	r := regexp.MustCompile(imgPattern)
+	matches := r.FindAllStringSubmatch(richText, -1)
+	imgUrls := make([]string, 0)
+	for _, match := range matches {
+		imgUrls = append(imgUrls, match[1])
+	}
+	return imgUrls
+}
+func separateContent1(richText string) map[string]interface{} {
+	pattern := regexp.MustCompile(`<img.*?src=['"](.*?)['"].*?>`)
+	matches := pattern.FindAllStringSubmatch(richText, -1)
+
+	var img []string
+	for _, match := range matches {
+		img = append(img, match[1])
+	}
+
+	text := pattern.ReplaceAllString(richText, "")
+	text = strings.TrimSpace(strings.ReplaceAll(text, "<", ""))
+	text = strings.TrimSpace(strings.ReplaceAll(text, ">", ""))
+
+	return map[string]interface{}{
+		"rich_text_img": img,
+		"rich_text":     text,
+	}
+}
+
+func main() {
+	goFramework.GinServer()
+	//$a = 1;
+	//func b(){
+	//	echo $a.PHP_EOL;
+	//}
+
+	//richText := `<p>测试代码<img src='https://img2.soyoung.com/product/20211213/4/8e36ebd8b3bb876ca1f90900701efe4a.jpg' watermark="0" width="750" height="1268"><img src="https://img2.soyoung.com/product/20211213/7/3d367c885817de5d8590a96c3c4e33e0.jpg" watermark="0" width="750" height="904"><img src="https://img2.soyoung.com/product/20211213/8/14e4235eb528c576190a6d6267215ac8.jpg" watermark="0" width="750" height="901"><img src="https://img2.soyoung.com/product/20211213/3/aa04ab1a0b7416b6b0ff927d89fe4fb8.jpg" watermark="0" width="750" height="911"><br></p><p><br></p>`
+	//richText := `<p> <span style="font-size:14px;">我院李志海博士研发的智能韩式微创长曲线下颌角截骨术，是在口腔内采取微创切口的方式，利用智能颌面全景扫描机器人观察骨轮廓，运用德国颌面整形系统完成一次性截骨术，安全高效，弧形，塑造自然惊艳小脸。</span> </p> <p> <span style="font-size:14px;"><img src="https://img1.soyoung.com/post/20140629/0/20140629150331621.jpg" width="730" height="465" alt="" /><br /> </span> </p> <p> <span style="font-size:14px;"><img src="https://img1.soyoung.com/post/20140629/1/20140629150342651.jpg" width="730" height="347" alt="" /><br /> </span> </p> <p> <span style="font-size:14px;"><img src="https://img2.soyoung.com/post/20140629/1/20140629150351144.jpg" width="730" height="303" alt="" /><br /> </span> </p> <p> <span style="font-size:14px;"><img src="https://img2.soyoung.com/post/20140629/8/20140629150401735.jpg" width="730" height="311" alt="" /><br /> </span> </p> <p> <span style="font-size:14px;"><img src="https://img2.soyoung.com/post/20140629/2/20140629150410605.jpg" width="730" height="378" alt="" /><br /> </span> </p>	`
+	//result := separateContent1(richText)
+	////result := extractImageUrls(richText)
+	//fmt.Println(result)
+
+	//date := time.Now().Format("2006-01-02 15:04:05")
+	//fmt.Println(date)
+	// 将返回现在的datetime 如 2019-04-27 22:37:23
+	//basicLevel.ReflectGetTag()
 	//u := User{1, "zs", 20}
 	//basicLevel.ReflectShowStructField(u)
 	//var x float64 = 3.4
@@ -104,11 +187,11 @@ func main() {
 	//s = append(s, "b")
 	//s = append(s, 1)
 	//fmt.Println(contains(s, 1))
-	os.Exit(0)
+	//os.Exit(0)
 	//str := "杨先森test"
 	//fmt.Println("RuneCountInString:", utf8.RuneCountInString(str))
 	//basicLevel.TestReflect()
-	crossingLevels.TestCopier()
+	//crossingLevels.TestCopier()
 	//designPattern.T()
 	//paramDemo := []int32{1, 2, 3}
 	//fmt.Printf("a:%d ,ptr:%p &ptr:%p\n", paramDemo, paramDemo, &paramDemo)
