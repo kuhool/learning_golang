@@ -4,7 +4,7 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
-	"learning_golang/goFramework"
+	"learning_golang/oneDayOneLibray"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
@@ -158,7 +158,10 @@ func separateContent1(richText string) map[string]interface{} {
 }
 
 func main() {
-	goFramework.GinServer()
+	oneDayOneLibray.CtxTimeOutTest()
+	//oneDayOneLibray.CtxTest()
+	//oneDayOneLibray.ContextTest()
+	//goFramework.GinServer()
 	//$a = 1;
 	//func b(){
 	//	echo $a.PHP_EOL;
