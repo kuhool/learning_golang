@@ -158,7 +158,11 @@ func separateContent1(richText string) map[string]interface{} {
 }
 
 func main() {
-	oneDayOneLibray.ContextTimeOutTest()
+	oneDayOneLibray.PieUniqTest()
+
+	//oneDayOneLibray.XormGetTest()
+
+	//oneDayOneLibray.ContextTimeOutTest()
 	//oneDayOneLibray.CtxTest()
 	//oneDayOneLibray.ContextTest()
 	//goFramework.GinServer()
