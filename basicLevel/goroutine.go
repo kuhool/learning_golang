@@ -9,11 +9,6 @@ import (
 	"time"
 )
 
-// init的使用方法？？？
-func init() {
-	fmt.Println("Goroutine lets go ")
-}
-
 type Job struct {
 	Id      int
 	RandNum int

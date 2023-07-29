@@ -2,10 +2,6 @@ package basicLevel
 
 import "fmt"
 
-// init的使用方法？？？
-func init() {
-	fmt.Println("func 函数")
-}
 func FuncTest() {
 	//调用函数作为参数的函数
 	num := test(func() int { return 100 })

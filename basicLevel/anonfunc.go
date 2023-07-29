@@ -4,11 +4,6 @@ import (
 	"fmt"
 )
 
-// init的使用方法？？？
-func init() {
-	fmt.Println("anon func 匿名函数")
-}
-
 func AnonFuncTest() {
 
 	//getSqrt := func(x float64) float64 {

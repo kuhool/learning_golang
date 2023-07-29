@@ -4,10 +4,6 @@ import (
 	"fmt"
 )
 
-// init的使用方法？？？
-func init() {
-	fmt.Println("类型转换")
-}
 func TypeTest3() {
 	var var1 int = 7
 	var2 := float32(var1)

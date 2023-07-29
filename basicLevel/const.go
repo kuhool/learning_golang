@@ -2,9 +2,9 @@ package basicLevel
 
 import "fmt"
 
-func init() {
-	fmt.Println("const 常量")
-}
+//	func init() {
+//		fmt.Println("const 常量")
+//	}
 func ConstTest() {
 	//申明单个常量
 	const pi = 3.1415

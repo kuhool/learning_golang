@@ -5,14 +5,19 @@ go 1.18
 require (
 	github.com/elliotchance/pie/v2 v2.7.0
 	github.com/gin-gonic/gin v1.9.1
+	github.com/go-echarts/go-echarts/v2 v2.2.7
 	github.com/go-sql-driver/mysql v1.7.0
 	github.com/go-xorm/xorm v0.7.9
+	github.com/jaevor/go-nanoid v1.3.0
 	github.com/jinzhu/copier v0.3.5
+	github.com/syyongx/php2go v0.9.8
 	go.uber.org/dig v1.17.0
+	go.uber.org/ratelimit v0.3.0
 	xorm.io/core v0.7.2-0.20190928055935-90aeac8d08eb
 )
 
 require (
+	github.com/benbjohnson/clock v1.3.0 // indirect
 	github.com/bytedance/sonic v1.9.1 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
 	github.com/denisenkom/go-mssqldb v0.10.0 // indirect
@@ -22,6 +27,7 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.14.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
+	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
 	github.com/kr/pretty v0.3.1 // indirect

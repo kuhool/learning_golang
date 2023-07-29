@@ -4,7 +4,8 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
-	"learning_golang/oneDayOneLibray"
+	"html"
+	"learning_golang/basicLevel"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
@@ -157,8 +158,35 @@ func separateContent1(richText string) map[string]interface{} {
 	}
 }
 
+func SeparateContent(richText string) (string, []string) {
+	pattern := regexp.MustCompile(`<img.*?src=['"](.*?)['"].*?>`)
+	matches := pattern.FindAllStringSubmatch(richText, -1)
+
+	var img []string
+	for _, match := range matches {
+		img = append(img, match[1])
+	}
+
+	stripped := html.UnescapeString(richText) // 解码HTML实体
+	richText = html.UnescapeString(stripped)  // 额外解码一次，以处理双重转义
+	text := pattern.ReplaceAllString(richText, "")
+	regex := regexp.MustCompile("<[^>]*>")
+	text = strings.TrimSpace(regex.ReplaceAllString(text, ""))
+	regex1 := regexp.MustCompile(`[\s\n]+`)
+	text = regex1.ReplaceAllString(text, "")
+
+	return text, img
+}
 func main() {
-	oneDayOneLibray.PieUniqTest()
+	basicLevel.IfTest()
+	
+	//oneDayOneLibray.Test2()
+	//oneDay
+	//interview.Questions()
+	//basicLevel.DeferTest()
+	//oneDayOneLibray.NanoidTest()
+	//oneDayOneLibray.PieAbsTest1()
+	//oneDayOneLibray.PieUniqTest()
 
 	//oneDayOneLibray.XormGetTest()
 
