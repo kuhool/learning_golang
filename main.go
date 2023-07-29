@@ -178,8 +178,8 @@ func SeparateContent(richText string) (string, []string) {
 	return text, img
 }
 func main() {
-	basicLevel.IfTest()
-	
+	basicLevel.NewTest()
+
 	//oneDayOneLibray.Test2()
 	//oneDay
 	//interview.Questions()
