@@ -178,12 +178,12 @@ func SeparateContent(richText string) (string, []string) {
 	return text, img
 }
 func main() {
-	basicLevel.NewTest()
+	//basicLevel.NewTest()
 
-	//oneDayOneLibray.Test2()
+	//oneDayOneLibray.PieTest()
 	//oneDay
-	//interview.Questions()
-	//basicLevel.DeferTest()
+	//interview.QuestionTwo()
+	basicLevel.VarTest()
 	//oneDayOneLibray.NanoidTest()
 	//oneDayOneLibray.PieAbsTest1()
 	//oneDayOneLibray.PieUniqTest()
@@ -264,7 +264,7 @@ func main() {
 	// test_slice()
 	// test_time() //练习使用time包
 	// test_iota()
-	fmt.Println("-------finished!!!------- ")
+	fmt.Println("\r\n-------finished!!!------- ")
 
 }
 

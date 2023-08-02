@@ -43,3 +43,36 @@ func VariableTest() {
 func foo() (int, string) {
 	return 10, "Q1mi"
 }
+
+func hello() []string {
+	return nil
+
+}
+
+func VarTest1() {
+	h := hello
+	if h == nil {
+		fmt.Println("nil")
+	} else {
+		fmt.Println("not nil")
+	}
+
+}
+
+func GetValue() int {
+	return 1
+}
+
+func VarTest() {
+	//i := GetValue()
+	//switch i.(type) { //i (variable of type int) is not an interface
+	//case int:
+	//	println("int")
+	//case string:
+	//	println("string")
+	//case interface{}:
+	//	println("interface")
+	//default:
+	//	println("unknown")
+	//}
+}

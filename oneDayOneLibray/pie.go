@@ -10,6 +10,12 @@ type Car struct {
 }
 
 func PieTest() {
+	slice1 := []int{1, 3, 4, 5}
+	slice2 := []int{1, 5, 2}
+	slice := pie.Intersect(slice2, slice1)
+	fmt.Println(slice)
+}
+func PieTest3() {
 	//chars := pie.AreSorted([]float64{1, 2, 3, 4, 5})
 	//chars := pie.AreUnique([]float64{1, 2, 3, 4, 5})
 	//chars := pie.Average([]float64{1, 2, 3, 4, 5})
