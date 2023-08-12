@@ -5,7 +5,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"html"
-	"learning_golang/basicLevel"
+	"learning_golang/crossingLevels"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
@@ -177,13 +177,56 @@ func SeparateContent(richText string) (string, []string) {
 
 	return text, img
 }
-func main() {
-	//basicLevel.NewTest()
 
+type Sku struct {
+	Id       int64  `json:"id"`
+	Name     string `json:"name"`
+	Price    int64  `json:"price"`
+	Quantity int64  `json:"quantity"`
+}
+
+func CheckString(input string) bool {
+	regex := regexp.MustCompile(`^[\d, ]+$`)
+	return regex.MatchString(input)
+}
+
+func main() {
+
+	crossingLevels.ProtocolBufferTest()
+	//intSlice := []int{1, 2, 3, 4, 5, 6}
+	//
+	//strSlice := make([]string, len(intSlice))
+	//for i, num := range intSlice {
+	//	strSlice[i] = strconv.Itoa(num)
+	//}
+	//str := "[" + strconv.Quote(strings.Join(strSlice, ",  ")) + "]"
+	//
+	//fmt.Println(str)
+
+	// 获取商品信息
+	//sku := &Sku{
+	//	Id:       1,
+	//	Name:     "sku1",
+	//	Price:    100,)
+	//str1 := "123,456,134343,545464"
+	//str2 := "abc,def"
+	//result1 := CheckString(str1)
+	//result2 := CheckString(str2)
+	//fmt.Println(str1, ":", result1)
+	//fmt.Println(str2, ":", result2)
+
+	//yfkCardName := "小绿卡"
+	//yfkType := 1
+	//yfkCardName = "%" + yfkCardName + "%"
+	//whereStr := fmt.Sprintf("status ! = -1 AND type = %d AND name LIKE %s ", yfkType, yfkCardName)
+	//fmt.Println(whereStr)
+	//
+	//query := strings.Join([]string{whereStr}, " ")
+	//fmt.Println(query)
 	//oneDayOneLibray.PieTest()
 	//oneDay
 	//interview.QuestionTwo()
-	basicLevel.VarTest()
+	//basicLevel.IfTest()
 	//oneDayOneLibray.NanoidTest()
 	//oneDayOneLibray.PieAbsTest1()
 	//oneDayOneLibray.PieUniqTest()

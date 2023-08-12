@@ -2,15 +2,26 @@ package basicLevel
 
 import "fmt"
 
-//参考文章
+// 参考文章
 // https://mp.weixin.qq.com/s/aC5BZWuO7bRJdc_xUmMTTw
-//小结：
-//1. if条件语句，隐私代码段，
-//2. if条件语句的作用域
-//3. 没有label的break
-//4. range 循环的是变量的副本
-
+// 小结：
+// 1. if条件语句，隐私代码段，
+// 2. if条件语句的作用域
+// 3. 没有label的break
+// 4. range 循环的是变量的副本
 func IfTest() {
+	x := 0
+
+	if n := "abc"; x > 0 { // 初始化语句未必就是定义变量， 如 println("init") 也是可以的。
+		println(n[2])
+	} else if x < 0 { // 注意 else if 和 else 左大括号位置。
+		println(n[1])
+	} else {
+		println(string(n[0]))
+	}
+}
+
+func IfTest4() {
 	var sl = []int{5, 19, 6, 3, 8, 12, 36}
 	var firstEven int = -1
 
