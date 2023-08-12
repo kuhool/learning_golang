@@ -7,6 +7,7 @@ import (
 )
 
 func ProtocolBufferTest() {
+	fmt.Println("Protocol Buffer Test demo")
 	person := &Person{
 		Name: "John",
 		Age:  25,
