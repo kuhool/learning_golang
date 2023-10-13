@@ -5,7 +5,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"html"
-	"learning_golang/crossingLevels"
+	"learning_golang/oneDayOneLibray"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
@@ -192,7 +192,11 @@ func CheckString(input string) bool {
 
 func main() {
 
-	crossingLevels.ProtocolBufferTest()
+	oneDayOneLibray.TestHtml()
+	//basicLevel.SliceTest4()
+	//oneDayOneLibray.PieTest()
+	//oneDayOneLibray.CmpTest()
+	//crossingLevels.ProtocolBufferTest()
 	//intSlice := []int{1, 2, 3, 4, 5, 6}
 	//
 	//strSlice := make([]string, len(intSlice))

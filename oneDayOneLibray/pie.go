@@ -10,6 +10,17 @@ type Car struct {
 }
 
 func PieTest() {
+	Intersect := pie.Intersect([]int{32}, []int{32, 33, 34})
+	fmt.Println(Intersect, len(Intersect))
+}
+func PieTest5() {
+	slice1 := []int{1, 3, 4, 5}
+	slice2 := []int{1, 5}
+	d1, d2 := pie.Diff(slice1, slice2)
+	fmt.Println(d1, d2)
+}
+
+func PieTest4() {
 	//slice1 := []int{1, 3, 4, 5}
 	slice2 := []int{1, 5, 2}
 	slice := pie.Sort(slice2)
