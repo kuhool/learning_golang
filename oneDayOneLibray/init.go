@@ -20,7 +20,7 @@ type ServerConfig struct {
 
 func ReadInit() {
 	v := viper.New()
-	v.SetConfigFile("config.yaml")
+	v.SetConfigFile("./config.yaml")
 	//读取配置文件的内容到viper
 	if err := v.ReadInConfig(); err != nil {
 		panic(err)
