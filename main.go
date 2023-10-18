@@ -192,8 +192,10 @@ func CheckString(input string) bool {
 
 func main() {
 
-	oneDayOneLibray.ReadInit()
-	//oneDayOneLibray.TestHtml()
+	//oneDayOneLibray.TestOs()
+	//oneDayOneLibray.Excel()
+	//oneDayOneLibray.ReadInit()
+	oneDayOneLibray.TestHtml()
 	//basicLevel.SliceTest4()
 	//oneDayOneLibray.PieTest()
 	//oneDayOneLibray.CmpTest()
