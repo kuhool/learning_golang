@@ -5,12 +5,12 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"html"
-	"learning_golang/oneDayOneLibray"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
 	"learning_golang/todo/selectT"
 	"learning_golang/todo/timer"
+	"net/http"
 	"os"
 	reflect "reflect"
 	"regexp"
@@ -190,12 +190,21 @@ func CheckString(input string) bool {
 	return regex.MatchString(input)
 }
 
-func main() {
+type Server interface {
+	http.Server
+}
 
+func main() {
+	//var s Server
+	//http.ListenAndServe(":8080", s)
+
+	fmt.Println("-------开始!!!------- ")
+	//oneDayOneLibray.GetIni()
+	//oneDayOneLibray.Test()
 	//oneDayOneLibray.TestOs()
 	//oneDayOneLibray.Excel()
 	//oneDayOneLibray.ReadInit()
-	oneDayOneLibray.TestHtml()
+	//oneDayOneLibray.TestHtml()
 	//basicLevel.SliceTest4()
 	//oneDayOneLibray.PieTest()
 	//oneDayOneLibray.CmpTest()
