@@ -5,6 +5,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"html"
+	"learning_golang/oneDayOneLibray"
 	"learning_golang/todo/atomic"
 	"learning_golang/todo/grt"
 	"learning_golang/todo/log"
@@ -197,7 +198,7 @@ type Server interface {
 func main() {
 	//var s Server
 	//http.ListenAndServe(":8080", s)
-
+	oneDayOneLibray.TestCli()
 	fmt.Println("-------开始!!!------- ")
 	//oneDayOneLibray.GetIni()
 	//oneDayOneLibray.Test()
