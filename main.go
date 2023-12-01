@@ -196,9 +196,13 @@ type Server interface {
 }
 
 func main() {
+
+	oneDayOneLibray.Time()
+	//where := []string{" aa= 1", "bb= 2", "cc= 3", "dd= 4"}
+	//fmt.Println(strings.Join(where, " and "))
 	//var s Server
 	//http.ListenAndServe(":8080", s)
-	oneDayOneLibray.TestCli()
+	//oneDayOneLibray.TestCli()
 	fmt.Println("-------开始!!!------- ")
 	//oneDayOneLibray.GetIni()
 	//oneDayOneLibray.Test()

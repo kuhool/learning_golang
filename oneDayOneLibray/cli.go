@@ -24,7 +24,19 @@ func TestCli() {
 				return nil
 			},
 		},
+		{
+			Name:    "greet1",
+			Aliases: []string{"hello1"},
+			Usage:   "Greet someone",
+			Action: func(c *cli.Context) error {
+				//命令：go run main.go  hello 11 22 （11）
+				//输出：Hello 11
+				fmt.Println("Hello1", c.Args().First())
+				return nil
+			},
+		},
 	}
+	//fmt.Println(os.Args)
 
 	err := app.Run(os.Args)
 	if err != nil {
