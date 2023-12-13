@@ -197,7 +197,9 @@ type Server interface {
 
 func main() {
 
-	oneDayOneLibray.Time()
+	oneDayOneLibray.MiddleWareTest()
+	//basicLevel.Goroutine1()
+	//oneDayOneLibray.TestSlice()
 	//where := []string{" aa= 1", "bb= 2", "cc= 3", "dd= 4"}
 	//fmt.Println(strings.Join(where, " and "))
 	//var s Server

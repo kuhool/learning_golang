@@ -19,6 +19,36 @@ type Result struct {
 	Sum int
 }
 
+func Goroutine1() {
+	start := time.Now()
+	// 创建一个带缓冲的channel， 用于接收结果
+	resultChan := make(chan string, 3)
+
+	hitFields := []string{"温家宝", "习近平"}
+	// 同时发起三个请求
+	for i := 0; i < len(hitFields); i++ {
+		go func(i int) {
+			resultChan <- fmt.Sprintf("结果是：%d", i)
+			time.Sleep(10)
+		}(i)
+	}
+
+	fmt.Println(hitFields)
+	var results []string
+	// 从channel中接收结果并将其添加到切片中
+	for j := 0; j < len(hitFields); j++ {
+		result := <-resultChan
+		results = append(results, result)
+	}
+
+	// 打印结果和总耗时
+	for _, result := range results {
+		fmt.Println(time.Now(), result)
+	}
+
+	fmt.Println("总耗时: ", time.Since(start))
+}
+
 // worker pool 实现一个协程池
 func GoroutineT() {
 
