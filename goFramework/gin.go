@@ -22,6 +22,7 @@ func GinServer() {
 }
 
 func Hello(c *gin.Context) {
+
 	c.String(200, "hello %s", "world")
 	c.JSON(http.StatusOK, gin.H{ //以json格式输出
 		"name": "tom",
